@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const messageSchema = mangoose.Schema(
+const messageSchema = mongoose.Schema(
     {
      sender :{type:mangoose.Schema.Types.ObjectId,ref:"User"},
      content : { type: String, 

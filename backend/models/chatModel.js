@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const chatSchema = mangoose.Schema(
+const chatSchema = mongoose.Schema(
     {
         chatName:{type:String, trim:true},
         isGroupChat : { type:Boolean, default:false},
