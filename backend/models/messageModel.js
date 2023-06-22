@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const messageSchema = mongoose.Schema(
     {
-     sender :{type:mangoose.Schema.Types.ObjectId,ref:"User"},
+     sender :{type:mongoose.Schema.Types.ObjectId,ref:"User"},
      content : { type: String, 
         trim : true}  ,
-     chat :{type:mangoose.Schema.Types.ObjectId,ref:"Chat"}  
+     chat :{type:mongoose.Schema.Types.ObjectId,ref:"Chat"}  
     },
     {
-        timeStamps: true
-    }
+        timestamps: { createdAt: "createdDate", updatedAt: "updatedDate" },
+      }
 );
 
 const Message = mongoose.model("Message",messageSchema);

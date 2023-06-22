@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import {chats} from "./data/data.js";
 import connectDB from "./config/db.js";
 import userRouter from "./routes/userRoutes.js"
+import chatRouter from "./routes/chatRoutes.js"
 import { notFound,errorHandler } from "./middleware/errorMiddleware.js";
 const PORT = process.env.PORT || 5000;
 
@@ -17,6 +18,8 @@ app.get("/",(req,res)=>{
 })
 
 app.use('/api/user',userRouter);
+app.use('/api/chat',chatRouter);
+
 
 //Error handling on other routes
 app.use(notFound);
