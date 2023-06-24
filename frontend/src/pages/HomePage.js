@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Box, Text } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import Login from '../components/Authentication/Login.js';
 import Signup from '../components/Authentication/Signup.js';
+import { useHistory } from "react-router-dom";
 
 const HomePage = () => {
+
+// If user already  sign in then check from localstorage and push it to a chat page
+  const history = useHistory();
+  
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user-info"));
+
+    if (user) {
+      history.push("/chats");
+    }
+  }, [history]);
+
   return (
     <Container maxW="xl" centerContent >
       <Box
